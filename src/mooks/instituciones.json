@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Instituto Superior Tecnológico Sucúa",
+        "siglas:": "ISTS",
+        "url": "https://istsucua.edu.ec/"
+    },
+    {
+        "id": 2,
+        "name": "Secretaria de Educacion Superior, Ciencia Tenologia e Innovacion",
+        "siglas:": "Senecyt",
+        "url": "https://www.senescyt.gob.ec/"
+    },
+    {
+        "id": 3,
+        "name": "Centro de Tecnologia de Entretenimiento y Capacitacion",
+        "siglas:": "Cetec",
+        "url": "https://www.cetececuador.com/"
+    }
+]

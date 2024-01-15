@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "nombre": "Fundamentos de Programación",
+        "participante": "Harold Hernández",
+        "cedula": "0704870377",
+        "estado": "Aprobado",
+        "horas": 40,
+        "fecha_inicio": "2023-04-10",
+        "fecha_fin": "2023-04-20",
+        "codigo": 56465,
+        "pdf_url": "#"
+    },
+    {
+        "id": 2,
+        "nombre": "Bases de Datos",
+        "participante": "Harold Hernández",
+        "cedula": "0704870377",
+        "estado": "Aprobado",
+        "horas": 30,
+        "fecha_inicio": "2023-06-10",
+        "fecha_fin": "2023-06-20",
+        "codigo": 56465,
+        "pdf_url": "#"
+    }
+]

@@ -1,0 +1,157 @@
+/*tool*/
+
+.panel-page .panel-sidebar-component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    min-width: 200px;
+    height: 100%;
+    padding: 10px;
+    border-right: solid 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 6px 1px rgba(0, 0, 0, 0.3);
+    background: var(--color4-bg);
+    overflow-y: auto;
+}
+
+.panel-page .panel-sidebar-component img.user_img {
+    display: block;
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+    aspect-ratio: 1/1;
+    margin: 10px 0;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.panel-page .panel-sidebar-component span.user_name {
+    display: block;
+    width: 100%;
+    min-height: 30px;
+    text-align: center;
+    color: var(--info);
+    font-size: 15px;
+    margin: 0 0 10px 0;
+    padding: 0 0 10px 0;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.panel-page .panel-sidebar-component hr {
+    background: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 1px;
+}
+
+.panel-page .panel-sidebar-component a.option {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    min-height: 30px;
+    margin: 5px 0;
+    padding: 0 5px;
+    text-decoration: none;
+    color: var(--color4-txt);
+    border-radius: 2px;
+}
+
+.panel-page .panel-sidebar-component a.option:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.panel-page .panel-sidebar-component a.option img {
+    width: 15px;
+    height: 15px;
+    filter: invert(1);
+}
+
+.panel-page .panel-sidebar-component a.option span {
+    flex-grow: 1;
+    display: block;
+    padding: 0 0 0 5px;
+    font-size: 15px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    opacity: 1;
+}
+
+.panel-page .panel-sidebar-component a.option.active {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0 0 0 20px;
+    box-shadow: 12px 0 0px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+/*tool -> in close*/
+.panel-page
+    .panel-page-state.close
+    ~ .panel-page-content
+    .panel-sidebar-component {
+    width: 50px;
+    min-width: 50px;
+}
+
+.panel-page
+    .panel-page-state.close
+    ~ .panel-page-content
+    .panel-sidebar-component
+    a.option
+    span {
+    width: 0;
+    padding: 0;
+    opacity: 0;
+}
+
+.panel-page
+    .panel-page-state.close
+    ~ .panel-page-content
+    .panel-sidebar-component
+    a.option.active {
+    padding: 0 5px;
+}
+
+/* in movil */
+
+@media (max-width: 600px) {
+    .panel-page-content .panel-sidebar-component {
+        position: fixed;
+        z-index: 500;
+        top: 0;
+        left: 0;
+        padding: 50px 0 0 0;
+        opacity: 1;
+        overflow-x: inherit;
+    }
+
+    .panel-page-state.close ~ .panel-page-content .panel-sidebar-component {
+        width: 0px;
+        min-width: 0px;
+        padding: 0;
+        overflow: hidden;
+        opacity: 0;
+    }
+
+    .panel-page-state.close
+        ~ .panel-page-content
+        .panel-sidebar-component
+        img.user_img {
+        width: 0px;
+        height: 0px;
+    }
+
+    .panel-page-state.close
+        ~ .panel-page-content
+        .panel-sidebar-component
+        a.option
+        span {
+        width: 0;
+        padding: 0;
+    }
+}

@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "Tlg. Pedro Alvarez",
+        "rol": "Profesor de Programación",
+        "description": "Si puedes pensarlo, puedes programarlo",
+        "photo": "https://randomuser.me/api/portraits/men/1.jpg",
+        "fb_url": "https://facebook.com/@PedroAlvarez"
+    },
+    {
+        "id": 2,
+        "name": "Ing. Favian Rodriguez",
+        "rol": "Profesor de Música",
+        "description": "Si puedes pensarlo, puedes programarlo",
+        "photo": "https://randomuser.me/api/portraits/men/3.jpg",
+        "fb_url": "https://facebook.com/@FavianRodriguez"
+    },
+    {
+        "id": 3,
+        "name": "Mgs. Jhon Jimenez",
+        "rol": "Profesor de Redes",
+        "description": "Si puedes pensarlo, puedes programarlo",
+        "photo": "https://randomuser.me/api/portraits/men/30.jpg",
+        "fb_url": "https://facebook.com/@JhonJimenez"
+    },
+    {
+        "id": 4,
+        "name": "Mgs. Rosita Chacha",
+        "rol": "Profesora de Cocina",
+        "description": "Si puedes pensarlo, puedes cocinarlo",
+        "photo": "https://randomuser.me/api/portraits/women/4.jpg",
+        "fb_url": "https://facebook.com/@RositaChacha"
+    },
+    {
+        "id": 5,
+        "name": "Mgs. Elena Gonzales",
+        "rol": "Profesora de Fisica",
+        "description": "Si puedes pensarlo, puedes formularlo",
+        "photo": "https://randomuser.me/api/portraits/women/42.jpg",
+        "fb_url": "https://facebook.com/@ElenaGonzales"
+    },
+    {
+        "id": 6,
+        "name": "Mgs. Martha Alvarez",
+        "rol": "Profesora de Matemáticas",
+        "description": "Aprender es crecer",
+        "photo": "https://randomuser.me/api/portraits/women/22.jpg",
+        "fb_url": "https://facebook.com/@MarthaAlvarez"
+    }
+]

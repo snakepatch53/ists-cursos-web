@@ -1,0 +1,35 @@
+.notfound-page {
+    min-height: calc(100vh);
+}
+.notfound-page .bg-menu {
+    display: flex;
+    width: 100%;
+    height: var(--header-height);
+    background: var(--color1-bg);
+}
+
+body {
+    background-color: #f3f4f6;
+}
+
+.notfound-page .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.notfound-page .card {
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    text-align: center;
+    border-radius: var(--radius);
+}
+
+.notfound-page .image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: var(--radius);
+}

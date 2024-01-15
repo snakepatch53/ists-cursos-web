@@ -1,0 +1,6 @@
+.cursos-page.bg-menu {
+    display: flex;
+    width: 100%;
+    height: var(--header-height);
+    background: var(--color1-bg);
+}

@@ -1,0 +1,28 @@
+a.social-network-link-component {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    padding: 10px;
+    border-radius: var(--radius);
+    transition: var(--transition);
+    box-shadow: var(--box-shadow);
+}
+
+a.social-network-link-component:hover {
+    background: rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+}
+
+a.social-network-link-component .container-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+
+a.social-network-link-component svg {
+    width: 100%;
+    fill: unset;
+}

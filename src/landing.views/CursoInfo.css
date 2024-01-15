@@ -1,0 +1,214 @@
+.page-curso-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.page-curso-info .banner {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: var(--padding);
+    padding-top: calc(var(--header-height) + 30px);
+    background: var(--color4-bg);
+    background: var(--color5-bg);
+}
+
+.curso-info-container .curso-info {
+    display: flex;
+    color: var(--color1-txt);
+    width: 100%;
+    /* background: rebeccapurple; */
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 5px;
+}
+
+.curso-info-container .curso-info img {
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+}
+.curso-info-container .curso-info .description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    gap: 20px;
+    padding: 10px;
+    /* background: #000; */
+}
+
+.curso-info-container .curso-info .description h3 {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.curso-info-container .curso-info .description p {
+    opacity: 0.8;
+    font-size: 0.8rem;
+}
+
+.curso-info-container .curso-info .description .datos {
+    display: flex;
+    gap: 5px;
+    opacity: 0.7;
+}
+
+.curso-info-container .curso-info .description .datos .datos-info {
+    /* background: red; */
+    font-size: 0.8rem;
+}
+
+.curso-info-container .curso-info .description .datos .datos-info svg {
+    padding: 0 5px;
+    color: var(--color1-bg);
+    font-size: 0.8rem;
+    opacity: 1;
+}
+
+.curso-info-container .curso-info .description .line {
+    background: var(--color1-txt);
+    height: auto;
+    width: 1px;
+}
+
+.curso-info-container .curso-info .description a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px;
+    color: var(--color1-txt);
+    background: var(--color1-bg);
+    border-radius: 3px;
+    transition: var(--transition);
+    box-shadow: var(--box-shadow);
+    max-width: 300px;
+}
+
+.curso-info-container .curso-info a:hover {
+    opacity: 1;
+    transform: scale(1.01);
+    transition: var(--transition);
+}
+
+.curso-temario {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: var(--padding);
+}
+
+.page-curso-info .section-team {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--padding);
+    width: 100%;
+    /* background: rebeccapurple; */
+}
+
+.page-curso-info .section-team .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-gap: 60px;
+    width: 100%;
+    max-width: var(--max-width);
+    padding: 40px 0;
+    margin: 0;
+}
+
+.contact-page .section-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding);
+    width: 100%;
+}
+
+.page-curso-info .section-title .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: var(--max-width);
+}
+
+.page-curso-info .section-title {
+    display: flex;
+    flex-direction: column;
+    background-image: var(--color5-bg);
+    align-items: center;
+    justify-content: center;
+    color: var(--color1-txt);
+    width: 100%;
+    padding: var(--padding);
+    gap: 10px;
+}
+.page-curso-info .section-title .nosotros-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.page-curso-info .section-title svg {
+    font-size: 3rem;
+}
+
+.page-curso-info .section-title p {
+    font-size: 1.3rem;
+    opacity: 0.6;
+}
+
+.inscription {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: var(--padding);
+    /* background: var(--color4-bg);
+    background: var(--color5-bg); */
+}
+
+.inscription .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    max-width: var(--max-width);
+}
+
+@media (width < 1050px) {
+    .curso-info-container .curso-info .description .datos {
+        flex-direction: column;
+    }
+}
+
+@media (width < 900px) {
+    .curso-info-container .curso-info {
+        flex-direction: column;
+    }
+    .curso-info-container .curso-info .description {
+        align-items: center;
+        justify-content: center;
+    }
+    .curso-info-container .curso-info .description .datos {
+        flex-direction: row;
+    }
+}
+
+@media (width < 550px) {
+    .curso-info-container .curso-info .description .datos {
+        flex-direction: column;
+    }
+}

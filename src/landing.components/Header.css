@@ -1,0 +1,235 @@
+header.color-red {
+    background: var(--color1-bg);
+}
+
+header.color-red .btn-burguer svg,
+header.color-red .menu a {
+    color: var(--color1-txt);
+}
+
+header.color-trans .logo,
+header.color-red .logo {
+    filter: invert(1) brightness(10);
+}
+
+header.color-trans {
+    background: transparent;
+}
+
+header.color-trans .btn-burguer svg,
+header.color-trans .menu a {
+    color: var(--color3-bg);
+}
+
+header {
+    position: fixed;
+    /* position: sticky; */
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    height: var(--header-height);
+    padding: 0 var(--padding);
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: var(--max-width);
+    height: 100%;
+    margin: auto;
+}
+
+header .logo {
+    display: flex;
+    /*background: green;*/
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    aspect-ratio: 6/2;
+    padding: 8px 0;
+}
+
+header img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+header .menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /*background: blueviolet;*/
+    height: 100%;
+}
+
+header .menu a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /*background: red;*/
+    padding: 15px 5px;
+    margin: 0 5px;
+    text-decoration: none;
+    height: 100%;
+    opacity: 0.5;
+    transition: var(--transition);
+    font-size: 1rem;
+}
+
+header .menu li.active a,
+header .menu a:hover {
+    opacity: 1;
+    transition: var(--transition);
+}
+
+header .menu li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    list-style-type: none;
+}
+
+header .menu li:hover .sub_menu {
+    padding: 10px 5px;
+    max-height: 400px;
+    transition: var(--transition);
+}
+
+header .menu .sub_menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 120px;
+    max-height: 0;
+    height: auto;
+    overflow: hidden;
+    padding: 0;
+    border-radius: 0 0 var(--radius) var(--radius);
+    background: var(--color3-bg);
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+header .menu .sub_menu li {
+    list-style-type: none;
+}
+
+header .menu .sub_menu a {
+    padding: 0;
+    text-decoration: none;
+    color: var(--color3-txt);
+    font-size: 0.9rem;
+}
+
+/* Adaptacion mobile */
+
+header .btn-burguer {
+    display: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: var(--radius);
+    transition: var(--transition);
+}
+
+header .btn-burguer:hover {
+    background: rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+}
+
+header .btn-burguer svg {
+    font-size: 1.2rem;
+}
+
+@media (width < 900px) {
+    header.open {
+        background: var(--color1-bg) !important;
+    }
+
+    header.open .btn-burguer svg {
+        color: var(--color1-txt) !important;
+    }
+
+    header.open .logo {
+        filter: invert(1) brightness(10);
+    }
+
+    header .btn-burguer {
+        display: block;
+    }
+
+    header .menu {
+        position: fixed;
+        right: -100%;
+        top: var(--header-height);
+        background: var(--color4-bg);
+        flex-direction: column;
+        width: 100%;
+        max-width: 200px;
+        height: calc(100vh - var(--header-height));
+        padding: 50px 10px;
+        gap: 30px;
+        transition: var(--transition);
+    }
+
+    header.open .menu {
+        right: 0;
+        transition: var(--transition);
+    }
+
+    header .menu li {
+        width: 100%;
+    }
+
+    header .menu a {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: auto;
+        color: var(--color4-txt) !important;
+    }
+
+    header .menu li {
+        flex-direction: column;
+        height: auto;
+    }
+
+    header .menu .sub_menu {
+        position: static;
+        top: none;
+        left: none;
+        transform: none;
+        flex-direction: column;
+        width: 100%;
+        max-height: unset;
+        height: auto;
+        padding-top: 10px;
+        overflow: none;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    header .menu li:hover .sub_menu {
+        padding: 0;
+        padding-top: 10px;
+        max-height: auto;
+        transition: var(--transition);
+    }
+
+    header .menu .sub_menu a {
+        padding: 0;
+        text-decoration: none;
+        color: var(--color1-txt);
+        font-size: 0.9rem;
+    }
+}

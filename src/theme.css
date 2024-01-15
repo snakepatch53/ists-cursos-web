@@ -1,0 +1,24 @@
+:root {
+    --danger: #c71c22;
+    --info: #2fa4e7;
+    --warn: #eab518;
+    --success: #73a839;
+
+    --color1-bg: #1273eb;
+    --color1-txt: #ffffff;
+
+    --color2-bg: #57bb6e;
+    --color2-txt: #ffffff;
+
+    --color3-bg: #ffffff;
+    --color3-txt: #000000;
+
+    --color4-bg: #091329;
+    --color4-txt: #ffffff;
+
+    --color5-bg: linear-gradient(90deg, #0d1623 30%, #154785 100%);
+    --color5-txt: #ffffff;
+
+    --color6-bg: #f9f9f9;
+    --color6-txt: #cccccc;
+}

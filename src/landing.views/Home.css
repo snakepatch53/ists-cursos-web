@@ -1,0 +1,81 @@
+/*.home {
+    background: var(--color4-bg);
+    color: var(--color3-txt);
+    margin: 10px;
+}*/
+/* estilos del banner inicio */
+.banner {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: var(--padding);
+    padding-top: calc(var(--header-height) + 30px);
+
+    background: var(--color4-bg);
+    background: var(--color5-bg);
+}
+
+.banner .container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    max-width: var(--max-width);
+}
+
+.banner .container .col {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner .container .col .slider-container {
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 3/2;
+}
+
+.banner .container .col .swiper {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 60px;
+    border-radius: 20px;
+}
+
+.banner .container .col .swiper img {
+    border-radius: 3px;
+}
+
+.banner .container .col h2 {
+    color: var(--color5-txt);
+}
+
+.banner .container .col span {
+    color: var(--color5-txt);
+    opacity: 0.7;
+}
+
+.banner .container .col p {
+    color: var(--color5-txt);
+    opacity: 0.5;
+}
+/* estilos del banner fin */
+
+@media (width < 900px) {
+    .banner .container {
+        flex-direction: column-reverse;
+        gap: 40px;
+        padding-bottom: 30px;
+    }
+}
+
+@media (width < 500px) {
+    .banner .container .col .swiper {
+        padding: 20px;
+    }
+}

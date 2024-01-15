@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "url": "#",
+        "image_url": "https://prod-discovery.edx-cdn.org/media/course/image/f012b05d-4599-46d5-93ae-0b31323e0635-fdd8f254167a.small.jpeg",
+        "name": "Fundamentos de Programacion",
+        "description": "Aprende a estructurar y manejar Design Tokens en sistemas de diseño modernos."
+    },
+    {
+        "id": 2,
+        "url": "#",
+        "image_url": "https://www.mtp.es/wp-content/uploads/2019/12/Gestio%CC%81n%20de%20proyectos-1200x675.jpg",
+        "name": "Programación orientada a Objetos",
+        "description": "Aprende a estructurar y manejar Design Tokens en sistemas de diseño modernos."
+    },
+    {
+        "id": 3,
+        "url": "#",
+        "image_url": "https://gprycon.com/wp-content/uploads/2021/06/Gestion-de-Alcance-de-Proyectos.png",
+        "name": "Bases de Datos",
+        "description": "Aprende a estructurar y manejar Design Tokens en sistemas de diseño modernos."
+    },
+    {
+        "id": 4,
+        "url": "#",
+        "image_url": "https://www.orbit.es/wp-content/uploads/2021/01/Sage200-Advanced-integrar.jpg",
+        "name": "Estadística Avanzada",
+        "description": "Aprende a estructurar y manejar Design Tokens en sistemas de diseño modernos."
+    },
+    {
+        "id": 5,
+        "url": "#",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtEH7gt-jC6iu1kw4B9uLX3T6fQ2UW402R-1RNhbFvoy4bGDpdQQ0cLWSa_bodp0ra_QM&usqp=CAU",
+        "name": "Administración de Empresas",
+        "description": "Aprende a estructurar y manejar Design Tokens en sistemas de diseño modernos."
+    },
+    {
+        "id": 6,
+        "url": "#",
+        "image_url": "https://www.aauniv.com/s/blog/wp-content/uploads/2021/11/metodologias-para-gestion-proyectos-1280x720.jpg",
+        "name": "Patrones de Diseño",
+        "description": "Aprende a estructurar y manejar Design Tokens en sistemas de diseño modernos."
+    }
+]

@@ -1,0 +1,81 @@
+/*HEADER*/
+
+.panel-page .panel-page-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background: var(--color1-bg);
+    box-shadow: 0 3px 6px 2px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.panel-page .panel-page-header span {
+    display: block;
+    width: 200px;
+    height: 100%;
+    padding: 0 10px;
+    font-size: 16px;
+    letter-spacing: 0.7px;
+    text-shadow: 0 0 1px var(--color1-txt);
+    color: var(--color1-txt);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 3.1;
+    background: rgba(0, 0, 0, 0.2);
+    border-right: solid 1px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.panel-page .panel-page-header button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 100%;
+    background: transparent;
+    cursor: pointer;
+}
+
+.panel-page .panel-page-header button:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.panel-page .panel-page-header button svg {
+    font-size: 1.1rem;
+    color: var(--color1-txt);
+}
+
+.panel-page .panel-page-header button.session_button {
+    width: auto;
+    padding: 0 10px;
+    margin: 0 0 0 auto;
+    white-space: nowrap;
+    color: var(--color1-txt);
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.panel-page .panel-page-header button.session_button:hover {
+    text-decoration: underline;
+    background: transparent;
+}
+
+/*header -> in close*/
+
+.panel-page .panel-page-state.close ~ .panel-page-header span {
+    width: 50px;
+}
+
+/* in movil */
+
+@media (max-width: 600px) {
+    .panel-page .panel-page-state.close ~ .panel-page-header span {
+        width: 0;
+        padding: 0;
+    }
+}

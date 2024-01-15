@@ -1,0 +1,29 @@
+button.button-component {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 5px 10px;
+    margin: 20px 0;
+    background: var(--color1-txt);
+    color: var(--color1-bg);
+    border-radius: var(--radius);
+    border: solid 1px var(--color1-bg);
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+button.button-component:hover {
+    background: var(--color1-bg);
+    color: var(--color1-txt);
+    transition: all 0.1s ease;
+}
+
+button.button-component span {
+    font-size: 1.1rem;
+}
+
+button.button-component svg {
+    font-size: 0.9rem;
+}

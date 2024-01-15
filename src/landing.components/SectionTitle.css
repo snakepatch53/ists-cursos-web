@@ -1,0 +1,29 @@
+.nosotros-page .section-title {
+    background-image: var(--color5-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color1-txt);
+    width: 100%;
+    padding: var(--padding);
+    gap: 10px;
+}
+
+.nosotros-page .section-title .nosotros-item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nosotros-page .section-title svg {
+    font-size: 3rem;
+}
+
+.nosotros-page .section-title h2 {
+}
+
+.nosotros-page .section-title p {
+    font-size: 1.3rem;
+    opacity: 0.6;
+    /* background: yellow; */
+}
