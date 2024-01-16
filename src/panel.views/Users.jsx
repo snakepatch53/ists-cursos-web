@@ -153,17 +153,15 @@ export default function Users() {
                 />
                 <CrudFormInput
                     name="role"
-                    label="Privilegios"
-                    placeholder="Privilegios"
-                    type="select"
+                    label="Provilegios"
+                    type="radio"
+                    radioOptions={[
+                        { value: "Administrador", label: "Administrador" },
+                        { value: "Responsable", label: "Responsable" },
+                        { value: "Profesor", label: "Profesor", checked: true },
+                    ]}
                     required
-                    id="role"
-                >
-                    <option value="">Seleccione..</option>
-                    <option value="Administrador">Administrador</option>
-                    <option value="Responsable">Responsable</option>
-                    <option value="Profesor">Profesor</option>
-                </CrudFormInput>
+                />
                 <CrudFormInput
                     label="Facebook"
                     placeholder="Ingrese el Link de Facebook"
