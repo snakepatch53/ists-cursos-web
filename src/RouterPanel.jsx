@@ -15,13 +15,16 @@ import NotFoundComponent from "./components/NotFoundComponent";
 import { logout } from "./services/users";
 import { Notification } from "./panel.components/Notification";
 import Mailbox from "./panel.views/Mailbox";
+import CrudProgress from "./panel.components/CrudProgress";
 export default function RouterPanel({ session, updateSession }) {
     const [showSidebar, setShowSidebar] = useState("open");
+    const [progress, setProgress] = useState(false);
     const handleClickShowSidebar = () => {
         setShowSidebar(showSidebar == "open" ? "close" : "open");
     };
 
     function handleLogout() {
+        setProgress(true);
         logout().then(() => {
             window.localStorage.removeItem("session");
             window.location.href = "/";
@@ -70,6 +73,7 @@ export default function RouterPanel({ session, updateSession }) {
                     </div>
                 </div>
             </div>
+            <CrudProgress isOpen={progress} text="Cerrando sesion..." />
         </Router>
     );
 }

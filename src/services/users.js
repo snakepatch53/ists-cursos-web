@@ -95,6 +95,7 @@ export async function login({ data }) {
         resource: "login",
         data,
         method: "POST",
+        all: true,
     });
     if (response.success) window.localStorage.setItem("session", JSON.stringify(response));
     return response;
