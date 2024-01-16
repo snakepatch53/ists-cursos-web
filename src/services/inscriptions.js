@@ -2,28 +2,19 @@ import { fetchAdapter } from "../../apiConfig";
 
 const resource = "inscriptions";
 
+function formatRow({ id, state, certificate_code, student_id, course_id, ...props }) {
+    return {
+        ...props,
+        id,
+        state,
+        certificate_code,
+        student_id,
+        course_id,
+    };
+}
+
 function mapNames(data) {
-    return data.map(
-        ({
-            id,
-            approval,
-            certificate_code,
-            student_id,
-            course_id,
-            created_at,
-            updated_at,
-            ...props
-        }) => ({
-            ...props,
-            id,
-            approval,
-            certificate_code,
-            student_id,
-            course_id,
-            created_at,
-            updated_at,
-        })
-    );
+    return data.map((row) => formatRow(row));
 }
 
 export async function getInscriptions() {
@@ -31,6 +22,16 @@ export async function getInscriptions() {
         resource: resource + "?includeCourse=true&includeStudent=true",
     });
     return mapNames(response);
+}
+
+export async function showCertificates({ data }) {
+    const response = await fetchAdapter({
+        resource: resource + "/show-certificates?includeCourse=true&includeStudent=true",
+        data,
+        method: "POST",
+        all: true,
+    });
+    return response;
 }
 
 export async function storageInscription({ data }) {

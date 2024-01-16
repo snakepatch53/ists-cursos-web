@@ -1,22 +1,44 @@
 import "./certificados.css";
 import AnimateElement from "../components/AnimateElement";
-import certificados from "./../mooks/certficados.json";
 import CertificadoItem from "../landing.components/CertificadoItem";
-import { useEffect, useState } from "react";
-import { isCedula, isEmail } from "../utils/validations";
-// import { useEffect, useState } from "react";
-// import { getCertificates } from "../services/certificates";
+import { useEffect, useRef, useState } from "react";
+import { isCedula } from "../utils/validations";
+import { showCertificates } from "../services/inscriptions";
 
 export default function Certificados() {
     const [search, setSearch] = useState("");
+    const [inscriptions, setInscriptions] = useState([]);
+    const [state, setState] = useState(0);
+    const $input = useRef(null);
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
     useEffect(() => {
-        if (isCedula(search) || isEmail(search)) {
-            return false;
+        if (isCedula(search)) {
+            const data = { username: search };
+            setState(1);
+            showCertificates({ data }).then((res) => {
+                if (res.success) {
+                    const _data = res.data.sort((a, b) => {
+                        if (a.state == "Aprobado") return -1;
+                        if (b.state == "Aprobado") return 1;
+                        if (a.state == "Inscrito") return -1;
+                        if (b.state == "Inscrito") return 1;
+                    });
+                    setInscriptions(_data);
+                    setState(2);
+                } else {
+                    setInscriptions([]);
+                    setState(0);
+                }
+                setTimeout(() => {
+                    $input.current.focus();
+                }, 100);
+            });
+        } else {
+            setState(0);
         }
     }, [search]);
 
@@ -24,20 +46,38 @@ export default function Certificados() {
         <AnimateElement className="cert-page">
             <section className="bg-menu"></section>
             <section className="search">
-                <Search value={search} onChange={(e) => setSearch(e.target.value)} />
+                <Search
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    disabled={state == 1}
+                    className={state == 1 ? "disabled" : ""}
+                    searchRef={$input}
+                />
                 <div className="resultado">
-                    <div className="n-result">
-                        <h3>1 Resultado(s) de Curso</h3>
+                    <div
+                        className={
+                            " p-2 h-full w-full bg-[var(--color1-bg)] text-[var(--color1-txt)] rounded-md " +
+                            (state === 2 ? "flex" : "hidden")
+                        }
+                    >
+                        {inscriptions && inscriptions.length === 0 && (
+                            <h3>No se encontraron resultados</h3>
+                        )}
+                        {inscriptions && inscriptions.length > 0 && (
+                            <h3>{inscriptions.length} Resultado(s) de Curso</h3>
+                        )}
                     </div>
                     <div className="items">
-                        <CertificadoItem />
-                        {certificados.map((certificado, index) => (
-                            <CertificadoItem
-                                key={certificado.id}
-                                number={index + 1}
-                                {...certificado}
-                            />
-                        ))}
+                        {state == 1 && (
+                            <h2 className="flex min-h-5 justify-center items-center text-center font-content font-bold text-base text-[var(--color1-bg)]">
+                                Cargando..
+                            </h2>
+                        )}
+                        {state == 2 &&
+                            inscriptions.length > 0 &&
+                            inscriptions.map((item, index) => (
+                                <CertificadoItem key={item.id} number={index + 1} {...item} />
+                            ))}
                     </div>
                 </div>
             </section>
@@ -45,7 +85,7 @@ export default function Certificados() {
     );
 }
 
-function Search({ value, onChange }) {
+function Search({ value, onChange, className = "", disabled = false, searchRef }) {
     return (
         <div className="container">
             <div className="titulo">
@@ -73,9 +113,12 @@ function Search({ value, onChange }) {
             <div className="buscador">
                 <input
                     type="search"
-                    placeholder="Escribe tu cédula o email.."
+                    placeholder="Escribe tu cédula.."
                     value={value}
                     onChange={onChange}
+                    disabled={disabled}
+                    className={" " + className}
+                    ref={searchRef}
                 />
             </div>
         </div>

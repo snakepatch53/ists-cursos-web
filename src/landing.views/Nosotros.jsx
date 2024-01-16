@@ -11,7 +11,7 @@ export default function Cursos() {
     const [users, setUsers] = useState(null);
 
     useEffect(() => {
-        // window.scrollTo(0, 0);
+        window.scrollTo(0, 0);
         getUsers().then((res) => setUsers(res));
     }, []);
 

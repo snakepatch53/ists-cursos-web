@@ -18,7 +18,7 @@ export default function Contacts({ socials }) {
     const [progress, setProgress] = useState(false);
 
     useEffect(() => {
-        // window.scrollTo(0, 0);
+        window.scrollTo(0, 0);
     }, []);
 
     if ($form?.current) {
