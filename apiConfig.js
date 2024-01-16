@@ -1,4 +1,4 @@
-export const API_URL = "https://ists-api.ideasoft.site/api/v1/";
+export const API_URL = import.meta.env.VITE_API_URL;
 
 export async function fetchAdapter({
     resource,
