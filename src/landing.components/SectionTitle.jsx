@@ -4,7 +4,7 @@ export default function SectionTitle({ icon, title, description, className = "",
     return (
         <div
             className={
-                (dark ? "bg-[var(--color4-bg)]" : "bg-[var(--color3-bg)]") + " w-full " + className
+                (dark ? "bg-[var(--color4-bg)]" : "bg-transparent") + " w-full py-16 " + className
             }
         >
             <div className="w-full px-[var(--padding)]">
