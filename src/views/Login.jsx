@@ -14,6 +14,24 @@ export default function Login() {
 
     function loguear(evt) {
         evt.preventDefault();
+        if (username.trim().length === 0) {
+            return showNotification({
+                title: "Error",
+                message: "Ingrese un usuario",
+                type: "warning",
+                posHorizontal: "center",
+                posVertical: "top",
+            });
+        }
+        if (password.trim().length === 0) {
+            return showNotification({
+                title: "Error",
+                message: "Ingrese una contraseña",
+                type: "warning",
+                posHorizontal: "center",
+                posVertical: "top",
+            });
+        }
         const data = {
             username,
             password,
@@ -30,6 +48,8 @@ export default function Login() {
                 title: "Error desde el servidor",
                 message: response.message || "Error en el servidor",
                 type: "danger",
+                posHorizontal: "center",
+                posVertical: "top",
             });
         });
     }
