@@ -147,6 +147,7 @@ export default function Home({ session, updateSession }) {
                                 fileAccept="image/png"
                                 inputIcon={faSignature}
                                 tagImgName="signature_img"
+                                imgObjectCover={false}
                             >
                                 <Input
                                     label="Privilegio"
@@ -240,6 +241,7 @@ const CardWrapper = ({
     inputIcon = faCamera,
     fileAccept = "image/jpg",
     tagImgName = "",
+    imgObjectCover = true,
 }) => {
     return (
         <div className="flex flex-col content-center justify-center gap-10 bg-white rounded-lg shadow-xl p-5 py-10">
@@ -249,7 +251,10 @@ const CardWrapper = ({
                         src={src}
                         alt={"Imagen de " + fileName}
                         accept={fileAccept}
-                        className="w-full h-full object-cover object-center bg-gray-300"
+                        className={
+                            "w-full h-full object-center bg-gray-300 " +
+                            (imgObjectCover ? "object-cover" : "object-contain")
+                        }
                         name={tagImgName}
                     />
                     <input type="file" name={fileName} id={fileName} className="hidden" />
