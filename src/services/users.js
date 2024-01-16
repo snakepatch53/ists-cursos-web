@@ -69,6 +69,18 @@ export async function updateUser({ id, data }) {
     return response;
 }
 
+export async function updateUserSession({ data }) {
+    const response = await fetchAdapter({
+        resource: "update-user-session",
+        data,
+        method: "POST",
+        all: true,
+        formData: true,
+        // printResponse: true,
+    });
+    return response;
+}
+
 export async function destroyUser({ id }) {
     const response = await fetchAdapter({
         resource: resource + "/" + id,
@@ -84,6 +96,7 @@ export async function login({ data }) {
         data,
         method: "POST",
     });
+    if (response.success) window.localStorage.setItem("session", JSON.stringify(response));
     return response;
 }
 

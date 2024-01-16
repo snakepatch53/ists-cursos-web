@@ -13,8 +13,13 @@ export default function App() {
         else setSession(false);
     }, []);
 
+    const updateSession = (user) => {
+        window.localStorage.setItem("session", JSON.stringify(user));
+        setSession(user);
+    };
+
     if (session == null) return <Loading />;
     if (window.location.pathname == "/login" && session == false) return <Login />;
-    if (session) return <RouterPanel session={session} />;
+    if (session) return <RouterPanel session={session} updateSession={updateSession} />;
     return <RouterLanding />;
 }

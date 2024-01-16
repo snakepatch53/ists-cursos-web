@@ -15,7 +15,7 @@ import NotFoundComponent from "./components/NotFoundComponent";
 import { logout } from "./services/users";
 import { Notification } from "./panel.components/Notification";
 import Mailbox from "./panel.views/Mailbox";
-export default function RouterPanel({ session }) {
+export default function RouterPanel({ session, updateSession }) {
     const [showSidebar, setShowSidebar] = useState("open");
     const handleClickShowSidebar = () => {
         setShowSidebar(showSidebar == "open" ? "close" : "open");
@@ -39,8 +39,14 @@ export default function RouterPanel({ session }) {
                     <Sidebar session={session} />
                     <div className="panel-page-page scroll-style relative">
                         <Routes>
-                            <Route path="/" element={<Home session={session} />} />
-                            <Route path="/login" element={<Home session={session} />} />
+                            <Route
+                                path="/"
+                                element={<Home session={session} updateSession={updateSession} />}
+                            />
+                            <Route
+                                path="/login"
+                                element={<Home session={session} updateSession={updateSession} />}
+                            />
                             <Route path="/users" element={<Users session={session} />} />
                             <Route path="/slider" element={<Slider session={session} />} />
                             <Route path="/students" element={<Students session={session} />} />
