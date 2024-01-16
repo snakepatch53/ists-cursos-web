@@ -1,20 +1,36 @@
-import "./InputForm.css";
-
 export default function InputForm({
     name,
     labelText,
     placeholder = "",
     radioOptions = [],
     type = "text",
+    required = false,
 }) {
+    const classNameInputs =
+        "w-full py-1.5 px-4 text-lg rounded-lg border border-solid border-black/20 resize-vertical font-content text-base";
     if (type != "radio")
         return (
-            <div className="input-form-component">
-                <label htmlFor={name}>{labelText}</label>
+            <div className="input-form-component flex flex-col items-start gap-1 w-full">
+                <label htmlFor={"input-" + name} className="text-base font-content2 pl-1">
+                    {labelText}
+                </label>
                 {type !== "textarea" ? (
-                    <input type={type} placeholder={placeholder} name={name} id={name} />
+                    <input
+                        type={type}
+                        placeholder={placeholder}
+                        name={name}
+                        id={name}
+                        className={classNameInputs}
+                        required={required}
+                    />
                 ) : (
-                    <textarea name={name} id={name} placeholder={placeholder}></textarea>
+                    <textarea
+                        name={name}
+                        id={"input-" + name}
+                        placeholder={placeholder}
+                        className={"min-h-40 " + classNameInputs}
+                        required={required}
+                    />
                 )}
             </div>
         );

@@ -1,5 +1,4 @@
 import AnimateElement from "../components/AnimateElement";
-import "./EquipoItem.css";
 
 export default function EquipoItem({
     name,
@@ -13,13 +12,24 @@ export default function EquipoItem({
     if (!load)
         return (
             <AnimateElement>
-                <a href={facebook} target="_blank" rel="noreferrer" className="item">
-                    <img src={photo_url}></img>
-                    <h3>
+                <a
+                    href={facebook}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group flex flex-col justify-start items-center h-full gap-4 p-4 text-[var(--color3-txt)] transition duration-300"
+                >
+                    <img
+                        src={photo_url}
+                        alt={"Foto del docente " + name}
+                        className="w-full max-w-[300px] aspect-square object-cover rounded-full p-7 transition-all duration-300 group-hover:-translate-y-1 "
+                    />
+                    <h3 className="opacity-70 font-content2 text-md leading-3">
                         {name} {lastname}
                     </h3>
-                    <span>{role}</span>
-                    <p>{description}</p>
+                    <span className="text-[var(--color1-bg)] font-content2 group-hover:underline">
+                        {role}
+                    </span>
+                    <p className="opacity-90 font-content text-base">{description}</p>
                 </a>
             </AnimateElement>
         );

@@ -1,4 +1,3 @@
-import "./Nosotros.css";
 import AnimateElement from "../components/AnimateElement";
 import EquipoItem from "../landing.components/EquipoItem";
 
@@ -12,27 +11,22 @@ export default function Cursos() {
     const [users, setUsers] = useState(null);
 
     useEffect(() => {
-        window.scrollTo(0, 0);
+        // window.scrollTo(0, 0);
         getUsers().then((res) => setUsers(res));
     }, []);
 
     return (
-        <AnimateElement className="nosotros-page">
-            <section className="section-title">
-                <br />
-                <br />
-                <br />
-                <div className="container">
-                    <SectionTitle
-                        icon={faPeopleGroup}
-                        title="Nuestro Equipo"
-                        description="Nuestro equipo esta conformado por profesionales de diferentes áreas y con diferentes experiencias, pero con un objetivo en común: ayudar a las personas a mejorar su calidad de vida a través de la educación."
-                    />
-                </div>
-            </section>
+        <AnimateElement className="flex flex-col justify-center items-center text-center">
+            <SectionTitle
+                icon={faPeopleGroup}
+                title="Nuestro Equipo"
+                description="Nuestro equipo esta conformado por profesionales de diferentes áreas y con diferentes experiencias, pero con un objetivo en común: ayudar a las personas a mejorar su calidad de vida a través de la educación."
+                className="pt-28 pb-10"
+                dark={true}
+            />
 
-            <section className="section-team">
-                <div className="container">
+            <section className="flex justify-center p-[var(--padding)] w-full">
+                <div className="w-full max-w-[var(--max-width)] grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     {users && users.map((people) => <EquipoItem key={people.id} {...people} />)}
                     {!users && (
                         <>
@@ -49,21 +43,17 @@ export default function Cursos() {
                 </div>
             </section>
 
-            <section className="section-title">
-                <div className="container">
-                    <SectionTitle
-                        icon={faHistory}
-                        title="Nuestros Conceptos"
-                        description="Somos un equipo altamente capacitado para enseñar acerca de areas en tendencia y de alta demanda."
-                    />
-                </div>
-            </section>
+            <SectionTitle
+                icon={faHistory}
+                title="Nuestros Conceptos"
+                description="Somos un equipo altamente capacitado para enseñar acerca de areas en tendencia y de alta demanda."
+            />
 
-            <section className="section-concepts">
-                <div className="container">
-                    <div className="col">
-                        <h4>MISIÓN</h4>
-                        <p>
+            <section className="flex justify-center w-full p-[var(--padding)]">
+                <div className="flex flex-col lg:flex-row gap-20">
+                    <div className="flex-1 flex flex-col gap-10">
+                        <h4 className="text-xl font-title2">MISIÓN</h4>
+                        <p className="font-content2 text-balance opacity-85">
                             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio
                             laboriosam sint ullam doloremque optio recusandae unde at fugiat vitae
                             amet neque suscipit voluptatibus, consectetur tenetur qui quibusdam!
@@ -72,9 +62,9 @@ export default function Cursos() {
                             sapiente soluta, dicta cum maiores culpa!
                         </p>
                     </div>
-                    <div className="col">
-                        <h4>VISIÓN</h4>
-                        <p>
+                    <div className="flex-1 flex flex-col gap-10">
+                        <h4 className="text-xl font-title2">VISIÓN</h4>
+                        <p className="font-content2 text-balance opacity-85">
                             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio
                             laboriosam sint ullam doloremque optio recusandae unde at fugiat vitae
                             amet neque suscipit voluptatibus, consectetur tenetur qui quibusdam!
