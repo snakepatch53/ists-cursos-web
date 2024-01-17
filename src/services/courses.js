@@ -77,6 +77,7 @@ export async function updateCourse({ id, data }) {
         method: "POST",
         all: true,
         formData: true,
+        printResponse: true,
     });
     return response;
 }

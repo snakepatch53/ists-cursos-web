@@ -250,14 +250,19 @@ const CardWrapper = ({
                     <img
                         src={src}
                         alt={"Imagen de " + fileName}
-                        accept={fileAccept}
                         className={
                             "w-full h-full object-center bg-gray-300 " +
                             (imgObjectCover ? "object-cover" : "object-contain")
                         }
                         name={tagImgName}
                     />
-                    <input type="file" name={fileName} id={fileName} className="hidden" />
+                    <input
+                        type="file"
+                        name={fileName}
+                        id={fileName}
+                        accept={fileAccept}
+                        className="hidden"
+                    />
                     <label
                         htmlFor={fileName}
                         className="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] w-full h-full max-w-0 max-h-0 overflow-hidden group-hover/img:max-w-52 group-hover/img:max-h-52 opacity-0 group-hover/img:opacity-100 flex flex-col gap-2 justify-center items-center bg-black/50 cursor-pointer duration-100"

@@ -135,17 +135,23 @@ function InputForm({ radioOptions = [], ...props }) {
                     {radioOptions.map(({ value, label, checked = false }) => (
                         <div className="relative flex-1" key={value}>
                             <input
+                                {...props}
                                 type="radio"
                                 id={props.name + "-" + value}
                                 name={props.name}
                                 value={value}
-                                className="hidden [&:checked~div]:w-full [&:checked~label]:opacity-100 [&:checked~label]:font-bold [&:checked~label]:text-[var(--info)]"
+                                className={
+                                    "hidden [&:checked~div]:w-full [&:checked~label]:opacity-100 [&:checked~label]:font-bold [&:checked~label]:text-[var(--info)] "
+                                }
                                 defaultChecked={checked}
                             />
                             <div className="absolute bottom-0 left-0 right-0 m-auto w-0 h-0.5 bg-[var(--info)] transition-all duration-200" />
                             <label
                                 htmlFor={props.name + "-" + value}
-                                className="cursor-pointer flex w-full h-full justify-center text-center p-1 transition-all duration-200 opacity-80 hover:opacity-100"
+                                className={
+                                    "cursor-pointer flex w-full h-full justify-center text-center p-1 transition-all duration-200 opacity-80 hover:opacity-100 " +
+                                    (props?.disabled ? "cursor-not-allowed opacity-40" : "")
+                                }
                             >
                                 {label}
                             </label>

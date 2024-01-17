@@ -60,11 +60,6 @@ export default function Sidebar({ session }) {
                 </Link>
             )}
 
-            <Link className="option" to="/courses">
-                <FontAwesomeIcon icon={faVideo} />
-                <span>Cursos</span>
-            </Link>
-
             {session.role == "Administrador" && (
                 <Link className="option" to="/redes">
                     <FontAwesomeIcon icon={faLink} />
@@ -85,6 +80,11 @@ export default function Sidebar({ session }) {
                     <span>Mensajes</span>
                 </Link>
             )}
+
+            <Link className="option" to="/courses">
+                <FontAwesomeIcon icon={faVideo} />
+                <span>Cursos</span>
+            </Link>
         </div>
     );
 }

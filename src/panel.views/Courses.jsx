@@ -26,7 +26,7 @@ import { getTemplates } from "../services/templates";
 import Inscriptions from "./Inscriptions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function Courses() {
+export default function Courses({ session }) {
     const extraValidations = ($form, showNotification, { isUrl }) => {
         if (!isUrl($form.whatsapp.value)) {
             showNotification("El link debe ser una URL valida");
@@ -64,6 +64,10 @@ export default function Courses() {
         crudDestroy: destroyCourse,
     });
 
+    // if ($form.current) {
+    //     console.log($form.current.teacher_id.value);
+    // }
+
     const [isOpenInscriptions, setIsOpenInscriptions] = useState(false);
     const [selectedCourse, setSelectedCourse] = useState(null);
     const [templates, setTemplates] = useState([]);
@@ -76,15 +80,28 @@ export default function Courses() {
     }, []);
 
     useEffect(() => {
-        // setTeachers(
-        //     users.filter((user) => user.role === "Profesor" || user.role === "Administrador")
-        // );
         setTeachers(users);
-        // setResponsibles(
-        //     users.filter((user) => user.role === "Responsable" || user.role === "Administrador")
-        // );
         setResponsibles(users.filter((user) => user.role !== "Profesor"));
     }, [users]);
+
+    // validacion de privilegios
+    const [coursesFilter, setCoursesFilter] = useState(null);
+    useEffect(() => {
+        if (datalist) {
+            if (session.role == "Administrador") return setCoursesFilter(datalist);
+            if (session.role == "Responsable")
+                return setCoursesFilter(
+                    datalist.filter(
+                        (course) =>
+                            course.responsible_id == session.id || course.teacher_id == session.id
+                    )
+                );
+            if (session.role == "Profesor")
+                return setCoursesFilter(
+                    datalist.filter((course) => course.teacher_id == session.id)
+                );
+        }
+    }, [datalist, session]);
 
     return (
         <>
@@ -99,8 +116,12 @@ export default function Courses() {
                 />
 
                 <CrudTable
-                    titles={["Imagen", "Nombre", "Cupos", "Duración", "Fecha de Inicio"]}
-                    dataList={datalist}
+                    titles={
+                        session.role === "Administrador"
+                            ? ["Imagen", "Nombre", "Responsable", "Profesor", "Fecha de Inicio"]
+                            : ["Imagen", "Nombre", "Cargo", "Fecha de Inicio"]
+                    }
+                    dataList={coursesFilter}
                     isOpen={table}
                     actionsNum={3}
                     onRowPrint={(item) => (
@@ -108,8 +129,19 @@ export default function Courses() {
                             <CrudTableTdImage src={item.image_url} alt={"Logo de " + item.name} />
 
                             <CrudTableTdText value={item.name} />
-                            <CrudTableTdText value={item.quota} />
-                            <CrudTableTdText value={item.duration} />
+                            {session.role === "Administrador" ? (
+                                <>
+                                    <CrudTableTdText value={item.responsible?.name} />
+                                    <CrudTableTdText value={item.teacher?.name} />
+                                </>
+                            ) : (
+                                <CrudTableTdText
+                                    value={
+                                        item.teacher_id == session.id ? "Profesor" : "Responsable"
+                                    }
+                                />
+                            )}
+
                             <CrudTableTdText value={item.date_start_str} />
 
                             <CrudTableTdFlex>
@@ -191,14 +223,21 @@ export default function Courses() {
                             { value: "0", label: "No", checked: true },
                         ]}
                         required
+                        disabled={session.role === "Profesor"}
                     />
                     <CrudFormInput name="teacher_id" label="Profesor" type="select" required>
-                        <option value="">Seleccione..</option>
-                        {teachers.map(({ id, name }) => (
-                            <option key={id} value={id}>
-                                {name}
-                            </option>
-                        ))}
+                        {session.role !== "Profesor" ? (
+                            <>
+                                <option value="">Seleccione..</option>
+                                {teachers.map(({ id, name }) => (
+                                    <option key={id} value={id}>
+                                        {name}
+                                    </option>
+                                ))}
+                            </>
+                        ) : (
+                            <option value={session.id}>{session.name}</option>
+                        )}
                     </CrudFormInput>
                     <CrudFormInput name="responsible_id" label="Responsable" type="select" required>
                         <option value="">Seleccione..</option>

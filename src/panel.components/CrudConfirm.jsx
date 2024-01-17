@@ -2,21 +2,15 @@ import "./CrudConfirm.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "./Button";
-import {
-    faCircleXmark,
-    faClose,
-    faTrash,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCircleXmark, faClose, faTrash } from "@fortawesome/free-solid-svg-icons";
 
-export default function CrudConfirm({
-    isOpen,
-    text,
-    onClickDelete,
-    onClickCancel,
-}) {
+export default function CrudConfirm({ isOpen, text, onClickDelete, onClickCancel }) {
     return (
         <section
             className={"panel-crudconfirm-component " + (isOpen ? "open" : "")}
+            onClick={(evt) => {
+                if (evt.target === evt.currentTarget) onClickCancel();
+            }}
         >
             <div className="ideaconfirm">
                 <div className="head">
@@ -31,13 +25,9 @@ export default function CrudConfirm({
                         icon={faCircleXmark}
                         type="cancel"
                         onClick={onClickCancel}
+                        className="bg-gray-500"
                     />
-                    <Button
-                        text="Eliminar"
-                        icon={faTrash}
-                        type="delete"
-                        onClick={onClickDelete}
-                    />
+                    <Button text="Eliminar" icon={faTrash} type="delete" onClick={onClickDelete} />
                 </div>
             </div>
         </section>
