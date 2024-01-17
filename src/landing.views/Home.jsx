@@ -3,7 +3,7 @@ import "./Home.css";
 // import images from "./../mooks/images.json";
 // import cursos from "./../mooks/cursos.json";
 import AnimateElement from "../components/AnimateElement";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -16,9 +16,18 @@ import { Link } from "react-router-dom";
 // import Loading from "../components/Loading";
 
 export default function Home({ courses, images }) {
+    const [disponibles, setDisponibles] = useState(null);
     useEffect(() => {
-        // window.scrollTo(0, 0);
+        window.scrollTo(0, 0);
     }, []);
+
+    useEffect(() => {
+        if (!courses) return;
+        const _disponibles = courses.filter(
+            (curso) => curso.published && !curso.course_finished && !curso.course_started
+        );
+        setDisponibles(_disponibles);
+    }, [courses]);
     // if (courses == null) return <Loading />;
 
     return (
@@ -49,7 +58,7 @@ export default function Home({ courses, images }) {
 
             <div className="w-full my-20">
                 <Title text="Algunos de nuestros Cursos" className="mb-10" />
-                {courses && (
+                {disponibles && (
                     <Swiper
                         spaceBetween={10}
                         slidesPerView={4}
@@ -67,14 +76,14 @@ export default function Home({ courses, images }) {
                         grabCursor={true}
                         className="w-full max-w-[var(--max-width)] pb-10"
                     >
-                        {courses.map((item) => (
+                        {disponibles.map((item) => (
                             <SwiperSlide key={item.id} className="w-full">
                                 <CursoItem to={"/curso/" + item.id} {...item} />
                             </SwiperSlide>
                         ))}
                     </Swiper>
                 )}
-                {courses && (
+                {disponibles && (
                     <Swiper
                         spaceBetween={10}
                         slidesPerView={4}
@@ -92,14 +101,14 @@ export default function Home({ courses, images }) {
                         grabCursor={true}
                         className="w-full max-w-[var(--max-width)] pb-10"
                     >
-                        {courses.map((item) => (
+                        {disponibles.map((item) => (
                             <SwiperSlide key={item.id} className="w-full">
                                 <CursoItem to={"/curso/" + item.id} {...item} />
                             </SwiperSlide>
                         ))}
                     </Swiper>
                 )}
-                {!courses && (
+                {!disponibles && (
                     <div className="container grid gap-8 grid-cols-1 sm:gridl-cols-2 md:grid-cols-3 lg:grid-cols-4">
                         <CursoItem load />
                         <CursoItem load />

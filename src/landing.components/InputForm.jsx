@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export default function InputForm({
     name,
     labelText,
@@ -5,7 +7,9 @@ export default function InputForm({
     radioOptions = [],
     type = "text",
     required = false,
+    onChange = () => {},
 }) {
+    const [value, setValue] = useState("");
     const classNameInputs =
         "w-full py-1.5 px-4 text-lg rounded-lg border border-solid border-black/20 resize-vertical font-content text-base";
     if (type != "radio")
@@ -19,16 +23,21 @@ export default function InputForm({
                         type={type}
                         placeholder={placeholder}
                         name={name}
-                        id={name}
+                        id={"input-" + name}
                         className={classNameInputs}
                         required={required}
+                        onChange={({ target }) => {
+                            setValue(target.value);
+                            onChange(target);
+                        }}
+                        value={value}
                     />
                 ) : (
                     <textarea
                         name={name}
                         id={"input-" + name}
                         placeholder={placeholder}
-                        className={"min-h-40 " + classNameInputs}
+                        className={"min-h-20 " + classNameInputs}
                         required={required}
                     />
                 )}
@@ -43,7 +52,7 @@ export default function InputForm({
                         className="flex w-full rounded-md overflow-hidden"
                         style={{ border: "solid 1px rgba(0, 0, 0, 0.2)" }}
                     >
-                        {radioOptions.map(({ value, label }) => (
+                        {radioOptions.map(({ value, label, checked = false }) => (
                             <div className="relative flex-1" key={value}>
                                 <input
                                     type="radio"
@@ -51,6 +60,7 @@ export default function InputForm({
                                     name={name}
                                     value={value}
                                     className="hidden [&:checked~div]:w-full [&:checked~label]:opacity-100"
+                                    defaultChecked={checked}
                                 />
                                 <div className="absolute bottom-0 left-0 right-0 m-auto w-0 h-0.5 bg-[var(--info)] transition-all duration-200" />
                                 <label

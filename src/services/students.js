@@ -49,6 +49,16 @@ export async function getStudents() {
     return mapNames(response);
 }
 
+export async function showStudent({ data }) {
+    const response = await fetchAdapter({
+        resource: resource + "/show-student",
+        data,
+        method: "POST",
+        all: true,
+    });
+    return response;
+}
+
 export async function storageStudent({ data }) {
     const response = await fetchAdapter({
         resource,
