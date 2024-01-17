@@ -22,6 +22,8 @@
     <br>
     El lenguaje de programacion principal es <b>JAVASCRIPT</b> con la libreria <b>REACT</b>
     <br>
+    Este proyecto funciona con una API REST desarrollada por `Ideasoft` en <b>LARAVEL</b> y una base de datos <b>MYSQL</b>, lo puedes encontrar en el siguiente repositorio: <a href="https://github.com/snakepatch53/ists-cursos-api">snakepatch53/ists-cursos-api</a>
+    <br>
 </p>
 
 ## 📋 REQUISITOS
@@ -33,9 +35,11 @@
 ## 📝 LICENCIA
 
 <p>
-    Este proyecto es de código abierto, ¡lo que significa que es completamente libre! 🙌 Puedes usarlo, copiarlo, modificarlo y distribuirlo como desees para tus propios proyectos sin ningún tipo de restricciones. 🚀
+    Este proyecto tiene derechos reservados para `Instituto Superior Tecnológico Sucua` y `Ideasoft` y no puede ser utilizado por terceros sin previa autorización.
     <br>
-    Nos encanta la idea de que más personas puedan utilizar y mejorar nuestro código. 🤓
+    Tenemos una clausula que te permitira usar nuestro proyecto en caso de ser por fines educativos, pero no podras usarlo para fines comerciales.
+    <br>
+    En caso de querer hecharle un vistazo al codigo, para inspirarte o aprender, puedes hacerlo sin problemas, pero no podras usarlo para fines comerciales.
     <br>
     ¡Gracias por visitarnos y disfruta del código! 😎
     <br>
@@ -43,52 +47,26 @@
 
 # 📦 DOCUMENTACION DE INSTALACION
 
+## ⬇️ CLONAR REPOSITORIO
+
+Clona el repositorio en tu maquina local con el siguiente comando:
+
+```bash
+  git clone https://github.com/snakepatch53/ists-cursos-web
+```
+
 ## 📄 VARIABLES DE ENTORNO
 
 Crea el archivo <b><i>.env</i></b> en base al archivo <b><i>.env.example</i></b> y configuralo. Principalmente las variables de entorno que se deben configurar son:
 
 ```env
-    DB_CONNECTION=mysql
-    DB_HOST=localhost
-    DB_PORT=3306
-    DB_DATABASE={{YOUR_DB_NAME}}
-    DB_USERNAME={{YOUR_DB_USER}}
-    DB_PASSWORD={{YOUR_DB_PASS}}
+    VITE_API_URL={{DOMAIN_API_ISTS}}
 ```
 
-## 🐬 MYSQL
+## 📦 NPM
 
-Crea la base de datos
-
-```sql
-  CREATE DATABASE {{YOUR_DB_NAME}};
-```
-
--   Asegurate de que el nombre de la base de datos sea el mismo que el que usas en el archivo .env
--   Si estas en CPANEL tendras que crearla con ayuda de la interfaz grafica.
-
-### 🛠 CONFIGURACION
-
-Para migrar las tablas de la base de datos puedes ejecutar el siguiente comando
+Instala las dependencias del proyecto con el siguiente comando:
 
 ```bash
-  php artisan migrate
+  npm install
 ```
-
-Suponiendo que CPANEL no te da acceso a una consola, puedes habilitarte el servicio en CPANEL de REMOTE MYSQL y desde tu proyecto en local puedes conectarte a la base de datos remota. Con eso puedes ejecutar el comando de migracion desde tu consola local.
-Posteriormente puedes deshabilitar el servicio de REMOTE MYSQL para que no se conecte desde cualquier lugar.
-
-## 🪶 APACHE
-
-#### 🛠 En caso de que tu proyecto ya este funcionando con un dominio y quieras usar _https_, puedes agregar esta configuracion en _htaccess_
-
-```htaccess
-  RewriteEngine On
-  RewriteCond %{HTTPS} !=on
-  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
-  Header always set Content-Security-Policy "upgrade-insecure-requests;"
-```
-
-## CONFIGURACION DE VERSION DE PHP
-
-En caso de que tu _CPANEL_ o tu entorno _LOCAL_ no tenga la version de _PHP_ minimamente _8.0_ debes asegurarte de instalarla y activarla.
