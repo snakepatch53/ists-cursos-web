@@ -24,6 +24,7 @@
     <br>
     Este proyecto funciona con una API REST desarrollada por `Ideasoft` en <b>LARAVEL</b> y una base de datos <b>MYSQL</b>, lo puedes encontrar en el siguiente repositorio: <a href="https://github.com/snakepatch53/ists-cursos-api">snakepatch53/ists-cursos-api</a>
     <br>
+    Tambien es importante recalcar que se trabajo con la arquitectura <b>SPA</b> (Single Page Application) y se utilizo <b>TAILWIND</b> como framework de CSS.
 </p>
 
 ## 📋 REQUISITOS
