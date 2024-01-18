@@ -12,6 +12,8 @@ import {
     faTimes,
     faEllipsisV,
     faRefresh,
+    faFileCsv,
+    faFileExcel,
 } from "@fortawesome/free-solid-svg-icons";
 import CrudHead from "../panel.components/CrudHead";
 import Button from "../panel.components/Button";
@@ -25,6 +27,7 @@ import CrudConfirm from "../panel.components/CrudConfirm";
 import CrudProgress from "../panel.components/CrudProgress";
 import { showNotification } from "../panel.components/Notification";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { API_URL } from "../../apiConfig";
 
 export default function Inscriptions({ course }) {
     const courseId = course?.id;
@@ -103,9 +106,41 @@ export default function Inscriptions({ course }) {
                 title={course?.name}
                 icon={faUserGraduate}
                 isOpen={true}
-                showNewButton={false}
                 searchValue={searchValue}
                 searchOnChange={searchOnChange}
+                rightButtonComponent={
+                    <OptionsButton>
+                        <Button
+                            href={API_URL + "get-insciptions-cetec-register-excel/" + course?.id}
+                            target="_blank"
+                            text="Registro"
+                            icon={faFileExcel}
+                            type="new"
+                            tagType={2}
+                            classNameIcon="text-base"
+                        />
+                        <Button
+                            href={API_URL + "get-inscription-moodle-csv-export/" + course?.id}
+                            target="_blank"
+                            text="Moodle"
+                            icon={faFileCsv}
+                            type="delete"
+                            tagType={2}
+                            className="bg-yellow-500"
+                            classNameIcon="text-base text-black"
+                            classNameText="text-black"
+                        />
+                        <Button
+                            href={API_URL + "get-insciptions-cetec-approveds-excel/" + course?.id}
+                            target="_blank"
+                            text="Códigos"
+                            icon={faFileExcel}
+                            type="edit"
+                            tagType={2}
+                            classNameIcon="text-base"
+                        />
+                    </OptionsButton>
+                }
             />
             <CrudTable
                 titles={["Nombres", "Cedula", "Estado"]}
@@ -132,53 +167,6 @@ export default function Inscriptions({ course }) {
                             />
                             <CrudTableTdText value={item?.state} classNameText={classState} />
                             <CrudTableTdFlex>
-                                {/* <Button
-                                    text=""
-                                    icon={faFilePdf}
-                                    type="new"
-                                    tagType={2}
-                                    _type="a"
-                                    className="bg-transparent"
-                                    classNameText="hidden"
-                                    classNameIcon="text-lg text-red-500"
-                                    href={item.certificate_url}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                />
-                                <Button
-                                    text="Aprobar"
-                                    icon={faCheck}
-                                    type="new"
-                                    onClick={() => handleOpenCode(item, "Aprobado")}
-                                    className={item.state == "Aprobado" ? "opacity-50" : ""}
-                                    disabled={item.state == "Aprobado"}
-                                />
-                                <Button
-                                    text="Reprobar"
-                                    icon={faX}
-                                    type="delete"
-                                    onClick={() => handleClick(item, "Reprobado")}
-                                    className={item.state == "Reprobado" ? "opacity-50" : ""}
-                                    disabled={item.state == "Reprobado"}
-                                />
-                                <Button
-                                    text="Banear"
-                                    icon={faBan}
-                                    type="cancel"
-                                    onClick={() => handleClick(item, "Baneado")}
-                                    className={
-                                        "bg-gray-500 " +
-                                        (item.state == "Baneado" ? "opacity-50" : "")
-                                    }
-                                    disabled={item.state == "Baneado"}
-                                />
-                                <Button
-                                    text="Expulsar"
-                                    icon={faTrash}
-                                    type="cancel"
-                                    onClick={() => handleModeDelete(item)}
-                                    className="bg-red-500"
-                                /> */}
                                 <OptionsButton>
                                     <Button
                                         text="Certificado"

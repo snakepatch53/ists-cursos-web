@@ -1,5 +1,7 @@
 export const API_URL = import.meta.env.VITE_API_URL;
 
+const _API_URL = API_URL + "api/v1/";
+
 export async function fetchAdapter({
     resource,
     method = "GET",
@@ -19,7 +21,7 @@ export async function fetchAdapter({
     headers.append("Authorization", sessionToken ? `Bearer ${sessionToken}` : "");
     if (!formData) headers.append("Content-Type", "application/json");
 
-    const response = await fetch(API_URL + resource, {
+    const response = await fetch(_API_URL + resource, {
         method,
         headers,
         body: body,

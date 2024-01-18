@@ -9,7 +9,7 @@ export default function CrudHead({
     icon = false,
     searchValue,
     searchOnChange,
-    showNewButton = true,
+    rightButtonComponent = false,
 }) {
     return (
         <section
@@ -61,7 +61,7 @@ export default function CrudHead({
                 </div>
             </div>
 
-            {showNewButton && (
+            {!rightButtonComponent && (
                 <div className="w-full flex justify-end">
                     <div className="w-full lg:w-24">
                         <Button
@@ -72,6 +72,11 @@ export default function CrudHead({
                             style={{ width: "100%" }}
                         />
                     </div>
+                </div>
+            )}
+            {rightButtonComponent && (
+                <div className="w-full flex justify-end">
+                    <div className="w-full lg:w-24">{rightButtonComponent}</div>
                 </div>
             )}
         </section>
