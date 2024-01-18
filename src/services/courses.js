@@ -61,7 +61,8 @@ export async function showCourse({ id }) {
 
 export async function storageCourse({ data }) {
     const response = await fetchAdapter({
-        resource,
+        resource:
+            resource + "?includeInscriptions=true&includeTeacher=true&includeResponsible=true",
         data,
         method: "POST",
         all: true,
@@ -72,7 +73,11 @@ export async function storageCourse({ data }) {
 
 export async function updateCourse({ id, data }) {
     const response = await fetchAdapter({
-        resource: resource + "/" + id,
+        resource:
+            resource +
+            "/" +
+            id +
+            "?includeInscriptions=true&includeTeacher=true&includeResponsible=true",
         data,
         method: "POST",
         all: true,

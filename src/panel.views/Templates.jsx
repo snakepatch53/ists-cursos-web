@@ -106,6 +106,8 @@ export default function Templates() {
                     <span>
                         Codigo <b>*</b>:
                     </span>
+                    <Variables />
+
                     <div
                         className="rounded-md overflow-hidden"
                         style={{
@@ -134,5 +136,424 @@ export default function Templates() {
 
             <CrudProgress isOpen={progress} text="Procesando tu solicitud..." />
         </AnimateElement>
+    );
+}
+
+function Variables({ color = "text-blue-500" }) {
+    return (
+        <div className="py-0">
+            <b className="font-content2 text-sm">Variables de Inscripción: </b>
+            <p className="leading-4 mb-2">
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">id</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">state</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">certificate_code</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">logo</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">logo1</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">logo2</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">logo3</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">fondo_certificado1</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+            </p>
+            <b className="font-content2 text-sm">Variables de Estudiante: </b>
+            <p className="leading-4 mb-2 px-7">
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">student.id</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">student.dni</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">student.name</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">student.lastname</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">student.sex</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">student.instruction</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">student.address</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">student.email</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">student.cellphone</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">student.phone</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">student.description</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">student.entity_name</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">student.entity_post</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">student.entity_address</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">student.entity_phone</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+            </p>
+            <b className="font-content2 text-sm">Variables de Curso: </b>
+            <p className="leading-4 mb-2">
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">course.id</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">course.name</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">course.duration</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">course.date_start</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">course.date_end</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">course.date_start_str</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">course.date_end_str</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">course.quota</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">course.whatsapp</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">course.description</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">course.published</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">course.image_url</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+            </p>
+            <b className="font-content2 text-sm">Variables de Profesor: </b>
+            <p className="leading-4 mb-2">
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">teacher.id</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">teacher.id</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">teacher.name</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">teacher.lastname</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">teacher.dni</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">teacher.signature</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">teacher.photo</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">teacher.email</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">teacher.role</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">teacher.description</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">teacher.facebook</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">teacher.email_verified_at</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">teacher.created_at</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">teacher.updated_at</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">teacher.photo_url</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">teacher.signature_url</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+            </p>
+            <b className="font-content2 text-sm">Variables de Responsable: </b>
+            <p className="leading-4 mb-2">
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">responsible.id</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">responsible.id</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">responsible.name</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">responsible.lastname</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">responsible.dni</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">responsible.signature</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">responsible.photo</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">responsible.email</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">responsible.role</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">responsible.description</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">responsible.facebook</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">responsible.email_verified_at</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">responsible.created_at</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">responsible.updated_at</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">responsible.photo_url</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+                {", "}
+                <span>
+                    <b className={color}>{`{{`}</b>
+                    <label className="font-normal select-all">responsible.signature_url</label>
+                    <b className={color}>{`}}`}</b>
+                </span>
+            </p>
+        </div>
     );
 }

@@ -11,6 +11,7 @@ import {
     faFilePdf,
     faTimes,
     faEllipsisV,
+    faRefresh,
 } from "@fortawesome/free-solid-svg-icons";
 import CrudHead from "../panel.components/CrudHead";
 import Button from "../panel.components/Button";
@@ -202,6 +203,14 @@ export default function Inscriptions({ course }) {
                                         onClick={() => handleOpenCode(item, "Aprobado")}
                                         className={item.state == "Aprobado" ? "hidden" : ""}
                                         disabled={item.state == "Aprobado"}
+                                    />
+                                    <Button
+                                        text="Inscrito"
+                                        icon={faRefresh}
+                                        type="edit"
+                                        onClick={() => handleClick(item, "Inscrito")}
+                                        className={item.state == "Inscrito" ? "hidden" : ""}
+                                        disabled={item.state == "Inscrito"}
                                     />
                                     <Button
                                         text="Reprobar"
